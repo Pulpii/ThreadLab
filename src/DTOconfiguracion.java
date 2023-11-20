@@ -1,18 +1,24 @@
 public class DTOconfiguracion {
+    private int numProductores;
+    private int numConsumidores;
     private boolean productoresAleatorios;
     private boolean consumidoresAleatorios;
     private int valorFijoSleepProductores;
     private int valorFijoSleepConsumidores;
     private int valorSliderProductores;
     private int valorSliderConsumidores;
-    private boolean protegerRegionesCríticas;
+    private boolean protegerRegionesCriticas;
 
-    public DTOconfiguracion (boolean productoresAleatorios, boolean consumidoresAleatorios, int valorSliderConsumidores, int valorSliderProductores, boolean protegerRegionesCríticas){
+    public DTOconfiguracion (int numConsumidores, int numProductores, boolean productoresAleatorios, boolean consumidoresAleatorios, int valorSliderConsumidores, int valorSliderProductores, boolean protegerRegionesCriticas, int valorFijoSleepConsumidores, int valorFijoSleepProductores){
         this.productoresAleatorios = productoresAleatorios;
         this.consumidoresAleatorios = consumidoresAleatorios;
         this.valorSliderProductores = valorSliderProductores;
         this.valorSliderConsumidores = valorSliderConsumidores;
-        this.protegerRegionesCríticas = protegerRegionesCríticas;
+        this.valorFijoSleepProductores = valorFijoSleepProductores;
+        this.valorFijoSleepConsumidores = valorFijoSleepConsumidores;
+        this.protegerRegionesCriticas = protegerRegionesCriticas;
+        this.numConsumidores = numConsumidores;
+        this.numProductores = numProductores;
     }
 
     public boolean isProductoresAleatorios() {
@@ -47,11 +53,43 @@ public class DTOconfiguracion {
         this.valorSliderConsumidores = valorSliderConsumidores;
     }
 
-    public boolean isProtegerRegionesCríticas() {
-        return protegerRegionesCríticas;
+    public boolean isProtegerRegionesCriticas() {
+        return protegerRegionesCriticas;
     }
 
-    public void setProtegerRegionesCríticas(boolean protegerRegionesCríticas) {
-        this.protegerRegionesCríticas = protegerRegionesCríticas;
+    public void setProtegerRegionesCriticas(boolean protegerRegionesCriticas) {
+        this.protegerRegionesCriticas = protegerRegionesCriticas;
+    }
+
+    public int getValorFijoSleepProductores() {
+        return valorFijoSleepProductores;
+    }
+
+    public void setValorFijoSleepProductores(int valorFijoSleepProductores) {
+        this.valorFijoSleepProductores = valorFijoSleepProductores;
+    }
+
+    public int getValorFijoSleepConsumidores() {
+        return valorFijoSleepConsumidores;
+    }
+
+    public void setValorFijoSleepConsumidores(int valorFijoSleepConsumidores) {
+        this.valorFijoSleepConsumidores = valorFijoSleepConsumidores;
+    }
+
+    public int getNumProductores() {
+        return numProductores;
+    }
+
+    public void setNumProductores(int numProductores) {
+        this.numProductores = numProductores;
+    }
+
+    public int getNumConsumidores() {
+        return numConsumidores;
+    }
+
+    public void setNumConsumidores(int numConsumidores) {
+        this.numConsumidores = numConsumidores;
     }
 }

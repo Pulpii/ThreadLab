@@ -3,8 +3,9 @@ import java.util.ArrayList;
 
 public class ProductorConsumidorModel{
     ProductorConsumidorController controller;
-    private int tiempoSleepProductores;
-    private int tiempoSleepConsumidores;
+
+    ArrayList<Consumidor> consumidores = new ArrayList<>();
+    ArrayList<Productor> productores = new ArrayList<>();
 
     public ProductorConsumidorModel(ProductorConsumidorController controller) {
         this.controller = controller;
@@ -13,16 +14,14 @@ public class ProductorConsumidorModel{
     public void play(){
         ArrayList<Thread> threads = new ArrayList<>();
 
-        for (int i = 0; i < 200; i++){
-            Productor productor = new Productor(this);
-            Thread hilo = new Thread(productor);
+        for (Productor p : productores){
+            Thread hilo = new Thread(p);
             hilo.start();
             threads.add(hilo);
         }
 
-        for (int i = 0; i < 400; i++){
-            Consumidor consumidor = new Consumidor(this);
-            Thread hilo = new Thread(consumidor);
+        for (Consumidor c : consumidores){
+            Thread hilo = new Thread(c);
             hilo.start();
             threads.add(hilo);
         }

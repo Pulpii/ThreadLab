@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Consumidor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DTOconfiguracion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Producto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Productor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taskHilos.iml" afterDir="false" />
+    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="task hilos">
+      <change afterPath="$PROJECT_DIR$/src/ControlPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ParametersPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ResultPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consumidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTOconfiguracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTOconfiguracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Productor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,21 +43,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "C:/Users/alumnat/IdeaProjects/taskHilos/src/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/alumnat/IdeaProjects/taskHilos/src/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alumnat\IdeaProjects\taskHilos\src" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ProductorConsumidorController">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -92,11 +97,27 @@
       <workItem from="1699460965532" duration="6304000" />
       <workItem from="1699547138451" duration="10114000" />
       <workItem from="1699633704400" duration="11000" />
-      <workItem from="1699886608106" duration="5946000" />
+      <workItem from="1699886608106" duration="6613000" />
+      <workItem from="1699972195610" duration="12340000" />
+      <workItem from="1700072240206" duration="33000" />
+      <workItem from="1700504207079" duration="3977000" />
     </task>
+    <task id="LOCAL-00001" summary="task hilos">
+      <option name="closed" value="true" />
+      <created>1699897976208</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897976208</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="task hilos" />
+    <option name="LAST_COMMIT_MESSAGE" value="task hilos" />
   </component>
 </project>

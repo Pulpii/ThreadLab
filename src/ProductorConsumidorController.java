@@ -7,11 +7,11 @@ public class ProductorConsumidorController {
 
     private Producto producto;
 
-    Producto productoPI;
-    Producto productoPA;
+    Producto productoresIniciados;
+    Producto productoresAcabados;
 
-    Producto productoCI;
-    Producto productoCA;
+    Producto consumidoresIniciados;
+    Producto consumidoresAcabados;
 
     LocalTime primero;
 
@@ -20,10 +20,10 @@ public class ProductorConsumidorController {
 
     public ProductorConsumidorController() {
         this.producto = new Producto();
-        this.productoPI = new Producto();
-        this.productoPA = new Producto();
-        this.productoCI = new Producto();
-        this.productoCA = new Producto();
+        this.productoresIniciados = new Producto();
+        this.productoresAcabados = new Producto();
+        this.consumidoresIniciados = new Producto();
+        this.consumidoresAcabados = new Producto();
         this.primero = LocalTime.now();
         this.ultimo = LocalTime.now();
 
@@ -40,17 +40,53 @@ public class ProductorConsumidorController {
 
     public void play(){
         this.producto.setValor(0);
-        this.productoPI.setValor(0);
-        this.productoPA.setValor(0);
-        this.productoCI.setValor(0);
-        this.productoCA.setValor(0);
+        this.productoresIniciados.setValor(0);
+        this.productoresAcabados.setValor(0);
+        this.consumidoresIniciados.setValor(0);
+        this.consumidoresAcabados.setValor(0);
         this.setPrimero(LocalTime.now());
         this.setUltimo(LocalTime.now());
 
-        //TODO DTO JEJE GODDD
-        //DTOconfiguracion dtOconfiguracion = new DTOconfiguracion()
-
+        DTOconfiguracion dtOconfiguracion = new DTOconfiguracion(
+                Integer.parseInt(view.getNumConsumidores().getText()),
+                Integer.parseInt(view.getNumProductores().getText()),
+                view.getTiempoAleatorioProductor().isSelected(),
+                view.getTiempoAleatorioConsumidor().isSelected(),
+                view.getSliderConsumidor().getValue(),
+                view.getSliderProductor().getValue(),
+                view.getProtegerRegionesCriticas().isSelected(),
+                Integer.parseInt(view.getTiempoSleepConsumidor().getText()),
+                Integer.parseInt(view.getTiempoSleepProductor().getText()));
+        
+        loadConfigurationToModel(dtOconfiguracion);
+        
         this.model.play();
+    }
+    
+    private void loadConfigurationToModel(DTOconfiguracion configuracion){
+        for (int i = 0; i < configuracion.getNumConsumidores(); i++) {
+            Consumidor c = new Consumidor(this.model);
+            if (configuracion.isConsumidoresAleatorios()){
+                c.setTiempoSleepFijo(0);
+                c.setTiempoSleepRandom(configuracion.getValorSliderConsumidores());
+            } else {
+                c.setTiempoSleepRandom(0);
+                c.setTiempoSleepFijo(configuracion.getValorFijoSleepConsumidores());
+            }
+            model.consumidores.add(c);
+        }
+
+        for (int i = 0; i < configuracion.getNumProductores(); i++) {
+            Productor p = new Productor(this.model);
+            if (configuracion.isProductoresAleatorios()){
+                p.setTiempoSleepFijo(0);
+                p.setTiempoSleepRandom(configuracion.getValorSliderProductores());
+            } else {
+                p.setTiempoSleepRandom(0);
+                p.setTiempoSleepFijo(configuracion.getValorFijoSleepProductores());
+            }
+            model.productores.add(p);
+        }
     }
 
     public ProductorConsumidorModel getModel() {
@@ -77,36 +113,36 @@ public class ProductorConsumidorController {
         this.producto = producto;
     }
 
-    public Producto getContadorPI() {
-        return productoPI;
+    public Producto getProductosIniciados() {
+        return productoresIniciados;
     }
 
-    public void setContadorPI(Producto productoPI) {
-        this.productoPI = productoPI;
+    public void setProductoresIniciados(Producto productoPI) {
+        this.productoresIniciados = productoPI;
     }
 
-    public Producto getContadorPA() {
-        return productoPA;
+    public Producto getProductoresAcabados() {
+        return productoresAcabados;
     }
 
-    public void setContadorPA(Producto productoPA) {
-        this.productoPA = productoPA;
+    public void setProductoresAcabados(Producto productoPA) {
+        this.productoresAcabados = productoPA;
     }
 
-    public Producto getContadorCI() {
-        return productoCI;
+    public Producto getConsumidoresIniciados() {
+        return consumidoresIniciados;
     }
 
-    public void setContadorCI(Producto productoCI) {
-        this.productoCI = productoCI;
+    public void setConsumidoresIniciados(Producto productoCI) {
+        this.consumidoresIniciados = productoCI;
     }
 
-    public Producto getContadorCA() {
-        return productoCA;
+    public Producto getConsumidoresAcabados() {
+        return consumidoresAcabados;
     }
 
-    public void setContadorCA(Producto productoCA) {
-        this.productoCA = productoCA;
+    public void setConsumidoresAcabados(Producto productoCA) {
+        this.consumidoresAcabados = productoCA;
     }
 
     public LocalTime getPrimero() {

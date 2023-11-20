@@ -5,8 +5,6 @@ public class Producto {
         this.valor = 0;
     }
 
-    //TODO tendremos consumir y consumir sincronizado, al igual que con producir
-
     public synchronized void producir() {
         this.valor++;
     }
