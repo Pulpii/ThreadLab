@@ -2,10 +2,10 @@ import java.time.LocalTime;
 import java.util.Random;
 
 public class Consumidor implements Runnable{
-    ProductorConsumidorModel model;
+    TJTLModel model;
     private int tiempoSleepFijo;
     private int tiempoSleepRandom;
-    public Consumidor(ProductorConsumidorModel model) {
+    public Consumidor(TJTLModel model) {
         this.model = model;
     }
 
@@ -14,10 +14,10 @@ public class Consumidor implements Runnable{
             this.model.getController().setPrimero(LocalTime.now());
         }
 
-        this.model.getController().getConsumidoresIniciados().producir();
+        this.model.getController().getConsumidoresIniciados().produce();
         for (int i = 0; i < 100; i++){
 
-            this.model.getController().getContador().consumir();
+            this.model.getController().getContador().consume();
             try {
                 if (tiempoSleepFijo == 0){
                     Random rand = new Random();
@@ -30,8 +30,8 @@ public class Consumidor implements Runnable{
                 e.printStackTrace();
             }
         }
-        this.model.getController().getConsumidoresIniciados().consumir();
-        this.model.getController().getConsumidoresAcabados().producir();
+        this.model.getController().getConsumidoresIniciados().consume();
+        this.model.getController().getConsumidoresAcabados().produce();
         notifyAll();
         if (this.model.getController().getUltimo().isBefore(LocalTime.now())){
             this.model.getController().setUltimo(LocalTime.now());

@@ -1,34 +1,15 @@
+import DTO.LabParameters;
+
 import java.time.LocalTime;
 
 public class ProductorConsumidorController {
-    private ProductorConsumidorModel model;
+    private TJTLModel model;
 
-    private ProductorConsumidorView view;
-
-    private Producto producto;
-
-    Producto productoresIniciados;
-    Producto productoresAcabados;
-
-    Producto consumidoresIniciados;
-    Producto consumidoresAcabados;
-
-    LocalTime primero;
-
-    LocalTime ultimo;
-
+    private TJTLVista view;
 
     public ProductorConsumidorController() {
-        this.producto = new Producto();
-        this.productoresIniciados = new Producto();
-        this.productoresAcabados = new Producto();
-        this.consumidoresIniciados = new Producto();
-        this.consumidoresAcabados = new Producto();
-        this.primero = LocalTime.now();
-        this.ultimo = LocalTime.now();
-
-        this.model = new ProductorConsumidorModel(this);
-        this.view = new ProductorConsumidorView(this);
+        this.model = new TJTLModel(this);
+        //this.view = new TJTLVista(this);
     }
 
     public static void main(String[] args){
@@ -36,129 +17,56 @@ public class ProductorConsumidorController {
 
         Thread hilo = new Thread(controller.getView());
         hilo.start();
+
+        //Crear dto default parameters que se le pasará arriba al constructor de vista
+
+        //además de aplicarlos
+        //applyConfig(labParameters);
+
+        controller.model.play();
     }
 
-    public void play(){
-        this.producto.setValor(0);
-        this.productoresIniciados.setValor(0);
-        this.productoresAcabados.setValor(0);
-        this.consumidoresIniciados.setValor(0);
-        this.consumidoresAcabados.setValor(0);
-        this.setPrimero(LocalTime.now());
-        this.setUltimo(LocalTime.now());
-
-        DTOconfiguracion dtOconfiguracion = new DTOconfiguracion(
-                Integer.parseInt(view.getNumConsumidores().getText()),
-                Integer.parseInt(view.getNumProductores().getText()),
-                view.getTiempoAleatorioProductor().isSelected(),
-                view.getTiempoAleatorioConsumidor().isSelected(),
-                view.getSliderConsumidor().getValue(),
-                view.getSliderProductor().getValue(),
-                view.getProtegerRegionesCriticas().isSelected(),
-                Integer.parseInt(view.getTiempoSleepConsumidor().getText()),
-                Integer.parseInt(view.getTiempoSleepProductor().getText()));
-        
-        loadConfigurationToModel(dtOconfiguracion);
-        
-        this.model.play();
-    }
     
-    private void loadConfigurationToModel(DTOconfiguracion configuracion){
-        for (int i = 0; i < configuracion.getNumConsumidores(); i++) {
+    private void applyConfig(LabParameters configuracion){
+        for (int i = 0; i < configuracion.getNumConsumers(); i++) {
             Consumidor c = new Consumidor(this.model);
-            if (configuracion.isConsumidoresAleatorios()){
+            if (configuracion.isRandomConsumers()){
                 c.setTiempoSleepFijo(0);
-                c.setTiempoSleepRandom(configuracion.getValorSliderConsumidores());
+                c.setTiempoSleepRandom(configuracion.getRandomMaxTimeToConsume());
             } else {
                 c.setTiempoSleepRandom(0);
-                c.setTiempoSleepFijo(configuracion.getValorFijoSleepConsumidores());
+                c.setTiempoSleepFijo(configuracion.getStaticSleepValueConsumers());
             }
             model.consumidores.add(c);
         }
 
-        for (int i = 0; i < configuracion.getNumProductores(); i++) {
+        for (int i = 0; i < configuracion.getNumProducers(); i++) {
             Productor p = new Productor(this.model);
-            if (configuracion.isProductoresAleatorios()){
+            if (configuracion.isRandomProducers()){
                 p.setTiempoSleepFijo(0);
-                p.setTiempoSleepRandom(configuracion.getValorSliderProductores());
+                p.setTiempoSleepRandom(configuracion.getRandomMaxTimeToProduce());
             } else {
                 p.setTiempoSleepRandom(0);
-                p.setTiempoSleepFijo(configuracion.getValorFijoSleepProductores());
+                p.setTiempoSleepFijo(configuracion.getStaticSleepValueProducers());
             }
             model.productores.add(p);
         }
     }
 
-    public ProductorConsumidorModel getModel() {
+    public TJTLModel getModel() {
         return model;
     }
 
-    public void setModel(ProductorConsumidorModel model) {
+    public void setModel(TJTLModel model) {
         this.model = model;
     }
 
-    public ProductorConsumidorView getView() {
+    public TJTLVista getView() {
         return view;
     }
 
-    public void setView(ProductorConsumidorView view) {
+    public void setView(TJTLVista view) {
         this.view = view;
-    }
-
-    public Producto getContador() {
-        return producto;
-    }
-
-    public void setContador(Producto producto) {
-        this.producto = producto;
-    }
-
-    public Producto getProductosIniciados() {
-        return productoresIniciados;
-    }
-
-    public void setProductoresIniciados(Producto productoPI) {
-        this.productoresIniciados = productoPI;
-    }
-
-    public Producto getProductoresAcabados() {
-        return productoresAcabados;
-    }
-
-    public void setProductoresAcabados(Producto productoPA) {
-        this.productoresAcabados = productoPA;
-    }
-
-    public Producto getConsumidoresIniciados() {
-        return consumidoresIniciados;
-    }
-
-    public void setConsumidoresIniciados(Producto productoCI) {
-        this.consumidoresIniciados = productoCI;
-    }
-
-    public Producto getConsumidoresAcabados() {
-        return consumidoresAcabados;
-    }
-
-    public void setConsumidoresAcabados(Producto productoCA) {
-        this.consumidoresAcabados = productoCA;
-    }
-
-    public LocalTime getPrimero() {
-        return primero;
-    }
-
-    public void setPrimero(LocalTime primero) {
-        this.primero = primero;
-    }
-
-    public LocalTime getUltimo() {
-        return ultimo;
-    }
-
-    public void setUltimo(LocalTime ultimo) {
-        this.ultimo = ultimo;
     }
 
 }

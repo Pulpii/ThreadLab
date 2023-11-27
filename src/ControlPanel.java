@@ -3,22 +3,22 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class ControlPanel extends JPanel{
-    private JButton playPauseButton;
-    private JButton restartButton;
-    private JCheckBox saveCriticRegions;
-    private JCheckBox positiveStockProducts;
+    private JToggleButton playPause;
+    private JButton reset;
+    private JCheckBox protectCriticalRegions;
+    private JCheckBox preventNegativeStocks;
 
     public ControlPanel(GridBagConstraints c, ActionListener actionListener){
-        this.playPauseButton = new JButton("Play");
-        this.restartButton = new JButton("Restart");
+        this.playPause = new JToggleButton("Play");
+        this.reset = new JButton("Restart");
 
         JLabel saveCriticLabel = new JLabel("Protect critic regions");
         saveCriticLabel.setForeground(Color.white);
-        this.saveCriticRegions = new JCheckBox();
+        this.protectCriticalRegions = new JCheckBox();
 
         JLabel positiveStockLabel = new JLabel("Stock product positive");
         positiveStockLabel.setForeground(Color.white);
-        this.positiveStockProducts = new JCheckBox();
+        this.preventNegativeStocks = new JCheckBox();
 
         this.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 2));
         this.setBackground(Color.decode("#292828"));
@@ -32,57 +32,57 @@ public class ControlPanel extends JPanel{
         c.gridwidth = 1;
         c.insets = new Insets(10,3,10,3);
 
-        this.playPauseButton.setBackground(Color.decode("#de6f1f"));
-        this.playPauseButton.setForeground(Color.BLACK);
-        this.playPauseButton.addActionListener(actionListener);
-        this.add(playPauseButton, c);
+        this.playPause.setBackground(Color.decode("#de6f1f"));
+        this.playPause.setForeground(Color.BLACK);
+        this.playPause.addActionListener(actionListener);
+        this.add(playPause, c);
 
         c.gridx = 1;
-        this.restartButton.setBackground(Color.decode("#fc8d3d"));
-        this.restartButton.setForeground(Color.BLACK);
-        this.restartButton.addActionListener(actionListener);
-        this.add(restartButton, c);
+        this.reset.setBackground(Color.decode("#fc8d3d"));
+        this.reset.setForeground(Color.BLACK);
+        this.reset.addActionListener(actionListener);
+        this.add(reset, c);
 
         c.gridx = 2;
         this.add(saveCriticLabel, c);
         c.gridx = 3;
-        this.add(saveCriticRegions, c);
+        this.add(protectCriticalRegions, c);
         c.gridx = 4;
         this.add(positiveStockLabel, c);
         c.gridx = 5;
-        this.add(positiveStockProducts, c);
+        this.add(preventNegativeStocks, c);
     }
 
 
-    public JButton getPlayPauseButton() {
-        return playPauseButton;
+    public JToggleButton getPlayPause() {
+        return playPause;
     }
 
-    public void setPlayPauseButton(JButton playPauseButton) {
-        this.playPauseButton = playPauseButton;
+    public void setPlayPause(JToggleButton playPause) {
+        this.playPause = playPause;
     }
 
-    public JButton getRestartButton() {
-        return restartButton;
+    public JButton getReset() {
+        return reset;
     }
 
-    public void setRestartButton(JButton restartButton) {
-        this.restartButton = restartButton;
+    public void setReset(JButton reset) {
+        this.reset = reset;
     }
 
-    public JCheckBox getSaveCriticRegions() {
-        return saveCriticRegions;
+    public JCheckBox getProtectCriticalRegions() {
+        return protectCriticalRegions;
     }
 
-    public void setSaveCriticRegions(JCheckBox saveCriticRegions) {
-        this.saveCriticRegions = saveCriticRegions;
+    public void setProtectCriticalRegions(JCheckBox protectCriticalRegions) {
+        this.protectCriticalRegions = protectCriticalRegions;
     }
 
-    public JCheckBox getPositiveStockProducts() {
-        return positiveStockProducts;
+    public JCheckBox getPreventNegativeStocks() {
+        return preventNegativeStocks;
     }
 
-    public void setPositiveStockProducts(JCheckBox positiveStockProducts) {
-        this.positiveStockProducts = positiveStockProducts;
+    public void setPreventNegativeStocks(JCheckBox preventNegativeStocks) {
+        this.preventNegativeStocks = preventNegativeStocks;
     }
 }

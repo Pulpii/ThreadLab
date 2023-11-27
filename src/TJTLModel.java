@@ -1,13 +1,12 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class ProductorConsumidorModel{
+public class TJTLModel {
     ProductorConsumidorController controller;
 
     ArrayList<Consumidor> consumidores = new ArrayList<>();
     ArrayList<Productor> productores = new ArrayList<>();
 
-    public ProductorConsumidorModel(ProductorConsumidorController controller) {
+    public TJTLModel(ProductorConsumidorController controller) {
         this.controller = controller;
     }
 

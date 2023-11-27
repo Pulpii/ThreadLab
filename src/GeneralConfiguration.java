@@ -1,27 +1,27 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class ParametersPanel extends JPanel {
+public class GeneralConfiguration extends JPanel {
     private JTextField productors;
-    private JTextField numItemsToProduct;
+    private JTextField numItemsToProduce;
     private JCheckBox randomProduceTime;
     private JSlider randomMaxtimeToProduce;
     private JTextField staticMaxTimeToProduce;
-    private JTextField consumer;
+    private JTextField consumers;
     private JTextField numItemsToConsume;
     private JCheckBox randomConsumeTime;
     private JSlider randomMaxtimeToConsume;
     private JTextField staticMaxTimeToConsume;
 
 
-   public ParametersPanel(GridBagConstraints c) {
+   public GeneralConfiguration(GridBagConstraints c) {
        JLabel productorsLabel = new JLabel("Productors");
        productorsLabel.setForeground(Color.white);
        this.productors = new JTextField("0");
        this.productors.setColumns(5);
        JLabel numItemsToProduceLabel = new JLabel("Number to produce per productor");
        numItemsToProduceLabel.setForeground(Color.white);
-       this.numItemsToProduct = new JTextField("0");
+       this.numItemsToProduce = new JTextField("0");
        JLabel randomTimeToProduceLabel = new JLabel("Random time to produce");
        randomTimeToProduceLabel.setForeground(Color.white);
        this.randomProduceTime = new JCheckBox();
@@ -40,7 +40,7 @@ public class ParametersPanel extends JPanel {
 
        JLabel consumersLabel = new JLabel("Consumers");
        consumersLabel.setForeground(Color.white);
-       this.consumer = new JTextField("0");
+       this.consumers = new JTextField("0");
        JLabel numItemsToConsumLabel = new JLabel("Number to consum per consumer");
        numItemsToConsumLabel.setForeground(Color.white);
        this.numItemsToConsume = new JTextField("0");
@@ -82,11 +82,11 @@ public class ParametersPanel extends JPanel {
        this.productors.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
        this.add(this.productors, c);
        c.gridx = 1;
-       this.consumer.setColumns(3);
-       this.consumer.setBackground(Color.decode("#292828"));
-       this.consumer.setForeground(Color.white);
-       this.consumer.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
-       this.add(this.consumer, c);
+       this.consumers.setColumns(3);
+       this.consumers.setBackground(Color.decode("#292828"));
+       this.consumers.setForeground(Color.white);
+       this.consumers.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
+       this.add(this.consumers, c);
        c.gridx = 0;
        c.gridy = 2;
        this.add(numItemsToProduceLabel, c);
@@ -94,11 +94,11 @@ public class ParametersPanel extends JPanel {
        this.add(numItemsToConsumLabel, c);
        c.gridy = 3;
        c.gridx = 0;
-       this.numItemsToProduct.setColumns(3);
-       this.numItemsToProduct.setBackground(Color.decode("#292828"));
-       this.numItemsToProduct.setForeground(Color.white);
-       this.numItemsToProduct.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
-       this.add(this.numItemsToProduct, c);
+       this.numItemsToProduce.setColumns(3);
+       this.numItemsToProduce.setBackground(Color.decode("#292828"));
+       this.numItemsToProduce.setForeground(Color.white);
+       this.numItemsToProduce.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
+       this.add(this.numItemsToProduce, c);
        c.gridx = 1;
        this.numItemsToConsume.setColumns(3);
        this.numItemsToConsume.setBackground(Color.decode("#292828"));
@@ -143,12 +143,12 @@ public class ParametersPanel extends JPanel {
         this.productors = productors;
     }
 
-    public JTextField getNumItemsToProduct() {
-        return numItemsToProduct;
+    public JTextField getNumItemsToProduce() {
+        return numItemsToProduce;
     }
 
-    public void setNumItemsToProduct(JTextField numItemsToProduct) {
-        this.numItemsToProduct = numItemsToProduct;
+    public void setNumItemsToProduce(JTextField numItemsToProduce) {
+        this.numItemsToProduce = numItemsToProduce;
     }
 
     public JCheckBox getRandomProduceTime() {
@@ -175,12 +175,12 @@ public class ParametersPanel extends JPanel {
         this.staticMaxTimeToProduce = staticMaxTimeToProduce;
     }
 
-    public JTextField getConsumer() {
-        return consumer;
+    public JTextField getConsumers() {
+        return consumers;
     }
 
-    public void setConsumer(JTextField consumer) {
-        this.consumer = consumer;
+    public void setConsumers(JTextField consumers) {
+        this.consumers = consumers;
     }
 
     public JTextField getNumItemsToConsume() {

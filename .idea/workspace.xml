@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="task hilos">
-      <change afterPath="$PROJECT_DIR$/src/ControlPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ParametersPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ResultPanel.java" afterDir="false" />
+    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DTO/LabResults.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Consumidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTOconfiguracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTOconfiguracion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControlPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTOconfiguracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/LabParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeneralConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Producto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Productor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TJTLModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TJTLVista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResultsViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +102,7 @@
       <workItem from="1699972195610" duration="12340000" />
       <workItem from="1700072240206" duration="33000" />
       <workItem from="1700504207079" duration="3977000" />
+      <workItem from="1701082514372" duration="6148000" />
     </task>
     <task id="LOCAL-00001" summary="task hilos">
       <option name="closed" value="true" />

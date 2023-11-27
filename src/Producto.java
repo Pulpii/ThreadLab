@@ -1,23 +1,21 @@
 public class Producto {
-    private int valor;
+    private String description;
+    private int producedQuantity;
+
+    private int consumedQuantity;
 
     public Producto() {
-        this.valor = 0;
+        this.consumedQuantity = 0;
+        this.producedQuantity = 0;
     }
 
-    public synchronized void producir() {
-        this.valor++;
+    public void produce() {
+        this.producedQuantity++;
     }
 
-    public synchronized void consumir() {
-        this.valor--;
+    public void consume() {
+        this.consumedQuantity++;
+        this.producedQuantity--;
     }
 
-    public int getValor() {
-        return this.valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
 }

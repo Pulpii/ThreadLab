@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class ResultPanel extends JPanel {
+public class ResultsViewer extends JPanel implements Runnable{
     private JTextField millisecondsToCreateThreadObjects;
     private JTextField millisecondsToStartThreads;
     private JTextField millisecondsToProcessConsumers;
@@ -15,11 +15,11 @@ public class ResultPanel extends JPanel {
     private JTextField amountThreadsConsumersEnded;
     private JTextField amountThreadsConsumersPending;
 
-    public ResultPanel(GridBagConstraints c){
+    public ResultsViewer(GridBagConstraints c){
         JLabel timeToCreateAllThreadsLabel = new JLabel("Time to create all Threads");
         timeToCreateAllThreadsLabel.setForeground(Color.WHITE);
         this.millisecondsToCreateThreadObjects = new JTextField("0");
-        this.millisecondsToCreateThreadObjects.setColumns(4);
+        this.millisecondsToCreateThreadObjects.setColumns(5);
         this.millisecondsToCreateThreadObjects.setBackground(Color.decode("#292828"));
         this.millisecondsToCreateThreadObjects.setForeground(Color.white);
         this.millisecondsToCreateThreadObjects.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -27,7 +27,7 @@ public class ResultPanel extends JPanel {
         JLabel timeToStartAllThreadsLabel = new JLabel("Time to start all Threads");
         timeToStartAllThreadsLabel.setForeground(Color.WHITE);
         this.millisecondsToStartThreads = new JTextField("0");
-        this.millisecondsToStartThreads.setColumns(4);
+        this.millisecondsToStartThreads.setColumns(5);
         this.millisecondsToStartThreads.setBackground(Color.decode("#292828"));
         this.millisecondsToStartThreads.setForeground(Color.white);
         this.millisecondsToStartThreads.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -35,7 +35,7 @@ public class ResultPanel extends JPanel {
         JLabel timeToProcessConsumersLabel = new JLabel("Time to process consumers");
         timeToProcessConsumersLabel.setForeground(Color.white);
         this.millisecondsToProcessConsumers = new JTextField("0");
-        this.millisecondsToProcessConsumers.setColumns(4);
+        this.millisecondsToProcessConsumers.setColumns(5);
         this.millisecondsToProcessConsumers.setBackground(Color.decode("#292828"));
         this.millisecondsToProcessConsumers.setForeground(Color.white);
         this.millisecondsToProcessConsumers.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -43,23 +43,23 @@ public class ResultPanel extends JPanel {
         JLabel timeToProcessProductorsLabel = new JLabel("Time to process productors");
         timeToProcessProductorsLabel.setForeground(Color.white);
         this.millisecondsToProcessProductors = new JTextField("0");
-        this.millisecondsToProcessProductors.setColumns(4);
+        this.millisecondsToProcessProductors.setColumns(5);
         this.millisecondsToProcessProductors.setBackground(Color.decode("#292828"));
         this.millisecondsToProcessProductors.setForeground(Color.white);
         this.millisecondsToProcessProductors.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
 
         JLabel amountProducedItemsLabel = new JLabel("Produced items");
         amountProducedItemsLabel.setForeground(Color.white);
-        this.amountProducedItems = new JTextField("");
-        this.amountProducedItems.setColumns(4);
+        this.amountProducedItems = new JTextField("0");
+        this.amountProducedItems.setColumns(5);
         this.amountProducedItems.setBackground(Color.decode("#292828"));
         this.amountProducedItems.setForeground(Color.white);
         this.amountProducedItems.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
 
         JLabel amountConsumedItemsLabel = new JLabel("Consumed items");
         amountConsumedItemsLabel.setForeground(Color.white);
-        this.amountConsumedItems = new JTextField("");
-        this.amountConsumedItems.setColumns(4);
+        this.amountConsumedItems = new JTextField("0");
+        this.amountConsumedItems.setColumns(5);
         this.amountConsumedItems.setBackground(Color.decode("#292828"));
         this.amountConsumedItems.setForeground(Color.white);
         this.amountConsumedItems.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -67,14 +67,14 @@ public class ResultPanel extends JPanel {
         JLabel amountThreadsProductorsProcessingLabel = new JLabel("Amount productors threads processing");
         amountThreadsProductorsProcessingLabel.setForeground(Color.white);
         this.amountThreadsProductorsProcessing = new JTextField("0");
-        this.amountThreadsProductorsProcessing.setColumns(4);
+        this.amountThreadsProductorsProcessing.setColumns(5);
         this.amountThreadsProductorsProcessing.setBackground(Color.decode("#292828"));
         this.amountThreadsProductorsProcessing.setForeground(Color.white);
         this.amountThreadsProductorsProcessing.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
 
         JLabel amountThreadsProductorsEndedLabel = new JLabel("Amount productors threads ended");
         this.amountThreadsProductorsEnded = new JTextField("0");
-        this.amountThreadsProductorsEnded.setColumns(4);
+        this.amountThreadsProductorsEnded.setColumns(5);
         this.amountThreadsProductorsEnded.setBackground(Color.decode("#292828"));
         this.amountThreadsProductorsEnded.setForeground(Color.white);
         this.amountThreadsProductorsEnded.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -83,7 +83,7 @@ public class ResultPanel extends JPanel {
         JLabel amountThreadsProductorsPendingLabel = new JLabel("Amount productors threads pending");
         amountThreadsProductorsPendingLabel.setForeground(Color.white);
         this.amountThreadsProductorsPending = new JTextField("0");
-        this.amountThreadsProductorsPending.setColumns(4);
+        this.amountThreadsProductorsPending.setColumns(5);
         this.amountThreadsProductorsPending.setBackground(Color.decode("#292828"));
         this.amountThreadsProductorsPending.setForeground(Color.white);
         this.amountThreadsProductorsPending.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -91,7 +91,7 @@ public class ResultPanel extends JPanel {
         JLabel amountThreadsConsumersProcessingLabel = new JLabel("Amount consumer threads processing");
         amountThreadsConsumersProcessingLabel.setForeground(Color.white);
         this.amountThreadsConsumersProcessing = new JTextField("0");
-        this.amountThreadsConsumersProcessing.setColumns(4);
+        this.amountThreadsConsumersProcessing.setColumns(5);
         this.amountThreadsConsumersProcessing.setBackground(Color.decode("#292828"));
         this.amountThreadsConsumersProcessing.setForeground(Color.white);
         this.amountThreadsConsumersProcessing.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -99,7 +99,7 @@ public class ResultPanel extends JPanel {
         JLabel amountThreadsConsumersEndedLabel = new JLabel("Amount consumer threads ended");
         amountThreadsConsumersEndedLabel.setForeground(Color.white);
         this.amountThreadsConsumersEnded = new JTextField("0");
-        this.amountThreadsConsumersEnded.setColumns(4);
+        this.amountThreadsConsumersEnded.setColumns(5);
         this.amountThreadsConsumersEnded.setBackground(Color.decode("#292828"));
         this.amountThreadsConsumersEnded.setForeground(Color.white);
         this.amountThreadsConsumersEnded.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -107,7 +107,7 @@ public class ResultPanel extends JPanel {
         JLabel amountThreadsConsumersPendingLabel = new JLabel("Amount consumer threads pending");
         amountThreadsConsumersPendingLabel.setForeground(Color.white);
         this.amountThreadsConsumersPending = new JTextField("0");
-        this.amountThreadsConsumersPending.setColumns(4);
+        this.amountThreadsConsumersPending.setColumns(5);
         this.amountThreadsConsumersPending.setBackground(Color.decode("#292828"));
         this.amountThreadsConsumersPending.setForeground(Color.white);
         this.amountThreadsConsumersPending.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
@@ -192,7 +192,7 @@ public class ResultPanel extends JPanel {
         c.gridx = 0;
         this.add(amountThreadsConsumersPendingLabel, c);
         c.gridx = 1;
-        this.add(amountThreadsConsumersEnded, c);
+        this.add(amountThreadsConsumersPending, c);
     }
 
     public JTextField getMillisecondsToCreateThreadObjects() {
@@ -289,5 +289,10 @@ public class ResultPanel extends JPanel {
 
     public void setAmountThreadsConsumersPending(JTextField amountThreadsConsumersPending) {
         this.amountThreadsConsumersPending = amountThreadsConsumersPending;
+    }
+
+    @Override
+    public void run() {
+
     }
 }
