@@ -4,61 +4,64 @@ import java.awt.*;
 public class GeneralConfiguration extends JPanel {
     private JTextField productors;
     private JTextField numItemsToProduce;
+    private JSlider randomTimeToProduce;
+    private JTextField staticTimeToProduce;
     private JCheckBox randomProduceTime;
-    private JSlider randomMaxtimeToProduce;
-    private JTextField staticMaxTimeToProduce;
+
     private JTextField consumers;
     private JTextField numItemsToConsume;
+    private JSlider randomTimeToConsume;
+    private JTextField staticTimeToConsume;
     private JCheckBox randomConsumeTime;
-    private JSlider randomMaxtimeToConsume;
-    private JTextField staticMaxTimeToConsume;
 
 
    public GeneralConfiguration(GridBagConstraints c) {
        JLabel productorsLabel = new JLabel("Productors");
        productorsLabel.setForeground(Color.white);
-       this.productors = new JTextField("0");
+       this.productors = new JTextField(LabParameters.numProducers+"");
        this.productors.setColumns(5);
+
        JLabel numItemsToProduceLabel = new JLabel("Number to produce per productor");
        numItemsToProduceLabel.setForeground(Color.white);
-       this.numItemsToProduce = new JTextField("0");
-       JLabel randomTimeToProduceLabel = new JLabel("Random time to produce");
-       randomTimeToProduceLabel.setForeground(Color.white);
-       this.randomProduceTime = new JCheckBox();
+       this.numItemsToProduce = new JTextField(LabParameters.numToProducePerProducer+"");
+
+       this.randomProduceTime = new JCheckBox("Set random time to produce");
+       this.randomProduceTime.setSelected(LabParameters.randomTimeProducers);
+
        JLabel timeToProduceLabel = new JLabel("Time to produce");
        timeToProduceLabel.setForeground(Color.white);
+       this.randomTimeToProduce = new JSlider(JSlider.HORIZONTAL, 0, 100, LabParameters.randomTimeValueProducers);
+       this.randomTimeToProduce.setMajorTickSpacing(25);
+       this.randomTimeToProduce.setMinorTickSpacing(10);
+       this.randomTimeToProduce.setPaintTicks(true);
+       this.randomTimeToProduce.setPaintLabels(true);
+       this.randomTimeToProduce.setVisible(false);
 
-       this.randomMaxtimeToProduce = new JSlider(JSlider.HORIZONTAL, 0, 100, 10);
-       this.randomMaxtimeToProduce.setMajorTickSpacing(10);
-       this.randomMaxtimeToProduce.setMinorTickSpacing(25);
-       this.randomMaxtimeToProduce.setPaintTicks(true);
-       this.randomMaxtimeToProduce.setPaintLabels(true);
-       this.randomMaxtimeToProduce.setVisible(false);
-
-       this.staticMaxTimeToProduce = new JTextField(0);
-       this.staticMaxTimeToProduce.setColumns(4);
+       this.staticTimeToProduce = new JTextField(LabParameters.staticTimeValueProducers+"");
+       this.staticTimeToProduce.setColumns(4);
 
        JLabel consumersLabel = new JLabel("Consumers");
        consumersLabel.setForeground(Color.white);
-       this.consumers = new JTextField("0");
+       this.consumers = new JTextField(LabParameters.numConsumers+"");
+
        JLabel numItemsToConsumLabel = new JLabel("Number to consum per consumer");
        numItemsToConsumLabel.setForeground(Color.white);
-       this.numItemsToConsume = new JTextField("0");
-       JLabel randomTimeToConsumLabel = new JLabel("Random time to consume");
-       randomTimeToConsumLabel.setForeground(Color.white);
-       this.randomConsumeTime = new JCheckBox();
+       this.numItemsToConsume = new JTextField(LabParameters.numToConsumePerConsumer);
+
+       this.randomConsumeTime = new JCheckBox("Set random time to consume");
+       this.randomConsumeTime.setSelected(LabParameters.randomTimeConsumers);
+
        JLabel timeToConsumLabel = new JLabel("Time to consume");
        timeToConsumLabel.setForeground(Color.white);
+       this.randomTimeToConsume = new JSlider(JSlider.HORIZONTAL, 0, 100, LabParameters.randomTimeValueConsumers);
+       this.randomTimeToConsume.setMajorTickSpacing(25);
+       this.randomTimeToConsume.setMinorTickSpacing(10);
+       this.randomTimeToConsume.setPaintTicks(true);
+       this.randomTimeToConsume.setPaintLabels(true);
+       this.randomTimeToConsume.setVisible(false);
 
-       this.randomMaxtimeToConsume = new JSlider(JSlider.HORIZONTAL, 0, 100, 10);
-       this.randomMaxtimeToConsume.setMajorTickSpacing(10);
-       this.randomMaxtimeToConsume.setMinorTickSpacing(25);
-       this.randomMaxtimeToConsume.setPaintTicks(true);
-       this.randomMaxtimeToConsume.setPaintLabels(true);
-       this.randomMaxtimeToConsume.setVisible(false);
-
-       this.staticMaxTimeToConsume = new JTextField(0);
-       this.staticMaxTimeToConsume.setColumns(4);
+       this.staticTimeToConsume = new JTextField(LabParameters.staticTimeValueConsumers+"");
+       this.staticTimeToConsume.setColumns(4);
 
        this.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 2));
        this.setBackground(Color.decode("#292828"));
@@ -106,34 +109,53 @@ public class GeneralConfiguration extends JPanel {
        this.numItemsToConsume.setBorder(BorderFactory.createLineBorder(Color.decode("#de6f1f"), 1));
        this.add(this.numItemsToConsume, c);
        c.gridx = 0;
-       c.gridy = 4;
 
-       this.add(randomTimeToProduceLabel, c);
        c.gridy = 5;
        this.add(this.randomProduceTime,c);
        c.gridx = 1;
-       c.gridy = 4;
-       this.add(randomTimeToConsumLabel, c);
-       c.gridy = 5;
        this.add(this.randomConsumeTime,c);
 
        c.gridx = 0;
        c.gridy = 6;
        this.add(timeToProduceLabel, c);
        c.gridy = 7;
-       this.add(this.randomMaxtimeToProduce, c);
-       this.add(this.staticMaxTimeToProduce, c);
+       this.add(this.randomTimeToProduce, c);
+       this.add(this.staticTimeToProduce, c);
        c.gridx = 1;
        c.gridy = 6;
        this.add(timeToConsumLabel, c);
        c.gridy = 7;
-       this.add(this.randomMaxtimeToConsume, c);
-       this.add(this.staticMaxTimeToConsume, c);
-
-
-
-
+       this.add(this.randomTimeToConsume, c);
+       this.add(this.staticTimeToConsume, c);
    }
+
+    public void resetPanelData(){
+        this.consumers.setText(LabParameters.numConsumers+"");
+        this.numItemsToConsume.setText(LabParameters.numToConsumePerConsumer+"");
+        this.randomTimeToConsume.setValue(LabParameters.randomTimeValueConsumers);
+        this.staticTimeToConsume.setText(LabParameters.staticTimeValueConsumers+"");
+        this.randomConsumeTime.setSelected(LabParameters.randomTimeConsumers);
+
+        this.productors.setText(LabParameters.numProducers+"");
+        this.numItemsToProduce.setText(LabParameters.numToProducePerProducer+"");
+        this.randomTimeToProduce.setValue(LabParameters.randomTimeValueProducers);
+        this.staticTimeToProduce.setText(LabParameters.staticTimeValueProducers+"");
+        this.randomProduceTime.setSelected(LabParameters.randomTimeProducers);
+    }
+
+    public void applyPanelData(){
+        LabParameters.numProducers = Integer.parseInt(this.productors.getText());
+        LabParameters.numToProducePerProducer = Integer.parseInt(this.numItemsToProduce.getText());
+        LabParameters.randomTimeValueProducers = this.randomTimeToProduce.getValue();
+        LabParameters.staticTimeValueProducers = Integer.parseInt(this.staticTimeToProduce.getText());
+        LabParameters.randomTimeProducers = this.randomProduceTime.isSelected();
+
+        LabParameters.numConsumers = Integer.parseInt(this.consumers.getText());
+        LabParameters.numToConsumePerConsumer = Integer.parseInt(this.numItemsToConsume.getText());
+        LabParameters.randomTimeValueConsumers = this.randomTimeToConsume.getValue();
+        LabParameters.staticTimeValueConsumers = Integer.parseInt(this.staticTimeToConsume.getText());
+        LabParameters.randomTimeConsumers = this.randomConsumeTime.isSelected();
+    }
 
     public JTextField getProductors() {
         return productors;
@@ -159,20 +181,20 @@ public class GeneralConfiguration extends JPanel {
         this.randomProduceTime = randomProduceTime;
     }
 
-    public JSlider getRandomMaxtimeToProduce() {
-        return randomMaxtimeToProduce;
+    public JSlider getRandomTimeToProduce() {
+        return randomTimeToProduce;
     }
 
-    public void setRandomMaxtimeToProduce(JSlider randomMaxtimeToProduce) {
-        this.randomMaxtimeToProduce = randomMaxtimeToProduce;
+    public void setRandomTimeToProduce(JSlider randomTimeToProduce) {
+        this.randomTimeToProduce = randomTimeToProduce;
     }
 
-    public JTextField getStaticMaxTimeToProduce() {
-        return staticMaxTimeToProduce;
+    public JTextField getStaticTimeToProduce() {
+        return staticTimeToProduce;
     }
 
-    public void setStaticMaxTimeToProduce(JTextField staticMaxTimeToProduce) {
-        this.staticMaxTimeToProduce = staticMaxTimeToProduce;
+    public void setStaticTimeToProduce(JTextField staticTimeToProduce) {
+        this.staticTimeToProduce = staticTimeToProduce;
     }
 
     public JTextField getConsumers() {
@@ -199,19 +221,19 @@ public class GeneralConfiguration extends JPanel {
         this.randomConsumeTime = randomConsumeTime;
     }
 
-    public JSlider getRandomMaxtimeToConsume() {
-        return randomMaxtimeToConsume;
+    public JSlider getRandomTimeToConsume() {
+        return randomTimeToConsume;
     }
 
-    public void setRandomMaxtimeToConsume(JSlider randomMaxtimeToConsume) {
-        this.randomMaxtimeToConsume = randomMaxtimeToConsume;
+    public void setRandomTimeToConsume(JSlider randomTimeToConsume) {
+        this.randomTimeToConsume = randomTimeToConsume;
     }
 
-    public JTextField getStaticMaxTimeToConsume() {
-        return staticMaxTimeToConsume;
+    public JTextField getStaticTimeToConsume() {
+        return staticTimeToConsume;
     }
 
-    public void setStaticMaxTimeToConsume(JTextField staticMaxTimeToConsume) {
-        this.staticMaxTimeToConsume = staticMaxTimeToConsume;
+    public void setStaticTimeToConsume(JTextField staticTimeToConsume) {
+        this.staticTimeToConsume = staticTimeToConsume;
     }
 }

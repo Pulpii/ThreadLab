@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DTO/LabResults.java" afterDir="false" />
+    <list default="true" id="6785ab54-be65-41d7-a60b-92e9d42894b4" name="Changes" comment="pendiente cambiar cositas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consumidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consumidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ControlPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControlPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTOconfiguracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/LabParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParametersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GeneralConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Productor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductorConsumidorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TJTLModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProductorConsumidorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TJTLVista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResultsViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +91,8 @@
       <workItem from="1699972195610" duration="12340000" />
       <workItem from="1700072240206" duration="33000" />
       <workItem from="1700504207079" duration="3977000" />
-      <workItem from="1701082514372" duration="6148000" />
+      <workItem from="1701082514372" duration="6878000" />
+      <workItem from="1701167972559" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="task hilos">
       <option name="closed" value="true" />
@@ -112,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699897976208</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pendiente cambiar cositas">
+      <option name="closed" value="true" />
+      <created>1701089461533</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701089461533</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +118,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="task hilos" />
-    <option name="LAST_COMMIT_MESSAGE" value="task hilos" />
+    <MESSAGE value="pendiente cambiar cositas" />
+    <option name="LAST_COMMIT_MESSAGE" value="pendiente cambiar cositas" />
   </component>
 </project>

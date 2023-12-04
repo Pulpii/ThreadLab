@@ -1,5 +1,3 @@
-import DTO.LabParameters;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

@@ -1,7 +1,3 @@
-import DTO.LabParameters;
-
-import java.time.LocalTime;
-
 public class ProductorConsumidorController {
     private TJTLModel model;
 
@@ -30,24 +26,24 @@ public class ProductorConsumidorController {
     private void applyConfig(LabParameters configuracion){
         for (int i = 0; i < configuracion.getNumConsumers(); i++) {
             Consumidor c = new Consumidor(this.model);
-            if (configuracion.isRandomConsumers()){
+            if (configuracion.isRandomTimeConsumers()){
                 c.setTiempoSleepFijo(0);
-                c.setTiempoSleepRandom(configuracion.getRandomMaxTimeToConsume());
+                c.setTiempoSleepRandom(configuracion.getRandomTimeValueConsumers());
             } else {
                 c.setTiempoSleepRandom(0);
-                c.setTiempoSleepFijo(configuracion.getStaticSleepValueConsumers());
+                c.setTiempoSleepFijo(configuracion.getStaticTimeValueConsumers());
             }
             model.consumidores.add(c);
         }
 
         for (int i = 0; i < configuracion.getNumProducers(); i++) {
             Productor p = new Productor(this.model);
-            if (configuracion.isRandomProducers()){
+            if (configuracion.isRandomTimeProducers()){
                 p.setTiempoSleepFijo(0);
-                p.setTiempoSleepRandom(configuracion.getRandomMaxTimeToProduce());
+                p.setTiempoSleepRandom(configuracion.getRandomTimeValueProducers());
             } else {
                 p.setTiempoSleepRandom(0);
-                p.setTiempoSleepFijo(configuracion.getStaticSleepValueProducers());
+                p.setTiempoSleepFijo(configuracion.getStaticTimeValueProducers());
             }
             model.productores.add(p);
         }

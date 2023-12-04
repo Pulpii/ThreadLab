@@ -5,12 +5,14 @@ import java.awt.event.ActionListener;
 public class ControlPanel extends JPanel{
     private JToggleButton playPause;
     private JButton reset;
+    private JButton apply;
     private JCheckBox protectCriticalRegions;
     private JCheckBox preventNegativeStocks;
 
     public ControlPanel(GridBagConstraints c, ActionListener actionListener){
         this.playPause = new JToggleButton("Play");
         this.reset = new JButton("Restart");
+        this.apply = new JButton("Apply");
 
         JLabel saveCriticLabel = new JLabel("Protect critic regions");
         saveCriticLabel.setForeground(Color.white);
@@ -44,15 +46,30 @@ public class ControlPanel extends JPanel{
         this.add(reset, c);
 
         c.gridx = 2;
-        this.add(saveCriticLabel, c);
+        this.apply.setBackground(Color.decode("#fc8d3d"));
+        this.apply.setForeground(Color.BLACK);
+        this.apply.addActionListener(actionListener);
+        this.add(apply, c);
+
         c.gridx = 3;
-        this.add(protectCriticalRegions, c);
+        this.add(saveCriticLabel, c);
         c.gridx = 4;
-        this.add(positiveStockLabel, c);
+        this.add(protectCriticalRegions, c);
         c.gridx = 5;
+        this.add(positiveStockLabel, c);
+        c.gridx = 6;
         this.add(preventNegativeStocks, c);
     }
 
+    public void applyConfigPanel(){
+        LabParameters.protectCriticalRegions = this.protectCriticalRegions.isSelected();
+        LabParameters.preventNegativeStock = this.preventNegativeStocks.isSelected();
+    }
+
+    public void resetConfigPanel(){
+        this.protectCriticalRegions.setSelected(LabParameters.protectCriticalRegions);
+        this.preventNegativeStocks.setSelected(LabParameters.preventNegativeStock);
+    }
 
     public JToggleButton getPlayPause() {
         return playPause;
@@ -60,6 +77,14 @@ public class ControlPanel extends JPanel{
 
     public void setPlayPause(JToggleButton playPause) {
         this.playPause = playPause;
+    }
+
+    public JButton getApply() {
+        return apply;
+    }
+
+    public void setApply(JButton apply) {
+        this.apply = apply;
     }
 
     public JButton getReset() {
